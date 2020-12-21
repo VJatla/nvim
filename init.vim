@@ -1,53 +1,66 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'davidhalter/jedi-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'neomake/neomake'
+" Look and feel
+Plug 'mhinz/vim-startify'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
+
+" File management and system exploration
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Key binding tools
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
+" Code editing and formatting
 Plug 'scrooloose/nerdcommenter'
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdtree'
+Plug 'neomake/neomake'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'machakann/vim-highlightedyank'
-Plug 'tmhedberg/SimpylFold'
 
-" Themes
-Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'chriskempson/base16-vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" auto completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Python related packages
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+
 call plug#end()
 
 
-" Looks
-"
-"     Theme
-"
-syntax on
-set t_Co=256
-set cursorline
-colorscheme onehalflight
-let g:airline_theme='onehalfdark'
-" lightline
-" let g:lightline = { 'colorscheme': 'onehalfdark' }
-"     Spaces instead of tabs
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" Key bindings
+let mapleader = " " " map leader to Space
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set timeoutlen=500
+:map <Leader>ff :Files<CR>
+:map <Leader>fb :Buffers<CR>
 
-" One tab = 4 spaces
-set tabstop=4
-set shiftwidth=4
-set expandtab
+
+
+" Look and feel
+set background=dark
+colorscheme palenight
+set splitbelow
+
+
+
+" Deoplete configuration
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+
+" Code editing/formatting
+let g:neoformat_basic_format_align = 1  " Enable alignment
+let g:neoformat_basic_format_retab = 1  " Enable tab to space conversion
+let g:neoformat_basic_format_trim = 1   " Enable trimmming of trailing whitespace
+
 
 " Python settings
-let g:python3_host_prog='/home/vj/anaconda3/envs/torch160/bin/python'
-let g:deoplete#enable_at_startup = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#use_splits_not_buffers = "right"
 let g:neomake_python_enabled_makers = ['flake8']
 call neomake#configure#automake('nrwi', 500)
