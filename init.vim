@@ -19,9 +19,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'godlygeek/tabular'
 
 " auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Version control
+Plug 'tpope/vim-fugitive' 
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
 
 " Python related packages
 Plug 'zchee/deoplete-jedi'
@@ -64,3 +71,6 @@ let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
 let g:neomake_python_enabled_makers = ['flake8']
 call neomake#configure#automake('nrwi', 500)
+if has('win32')
+    let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python38/python.exe')
+endif
