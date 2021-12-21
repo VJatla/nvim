@@ -11,4 +11,11 @@ use {'lervag/vimtex'}
 
 -- Git integration
 use {'tpope/vim-fugitive'}
+
+-- Vim Start screen
+use('mhinz/vim-startify')
+
+-- fzf
+use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+use {'junegunn/fzf.vim'}
 end)
