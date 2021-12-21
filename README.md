@@ -24,4 +24,4 @@ day of working.
 	- latexmk
 	- okular
 	- vim-tex
-3. Git: Neogit
+3. Git: Fugitive

@@ -10,5 +10,5 @@ use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 use {'lervag/vimtex'}
 
 -- Git integration
-use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+use {'tpope/vim-fugitive'}
 end)
