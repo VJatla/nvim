@@ -3,8 +3,9 @@ return require('packer').startup(function()
 -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
--- Gruvbox theme
+--  Theme
 use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use {"arcticicestudio/nord-vim"}
 
 -- LaTex
 use {'lervag/vimtex'}

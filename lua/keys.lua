@@ -1,6 +1,11 @@
 -- My goal is to do keybindings that will allow me to not use pinky
 --
 --
+
+-- I am defining the leader key again here
+vim.g.mapleader = ' '
+
+
 -- Leader key bindings
 vim.api.nvim_set_keymap("n", "<Leader>s", ":w<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>S", ":wa<CR>", { noremap = true })
