@@ -6,9 +6,7 @@ return require('packer').startup(function()
 --  Theme
 use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 use {"arcticicestudio/nord-vim"}
-
--- LaTex
-use {'lervag/vimtex'}
+use {"dracula/vim"}
 
 -- Git integration
 use {'tpope/vim-fugitive'}

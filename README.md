@@ -25,3 +25,14 @@ day of working.
 	- okular
 	- vim-tex
 3. Git: Fugitive
+
+## System settings
+System settings are in `./lua/this_sys_settings.lua`. Here I am providing a
+sample of these settings
+```lua
+-- GUI font
+vim.cmd 'set guifont=Fira\\ Mono:h12'
+
+-- Setting theme to dracula
+vim.cmd[[colorscheme dracula]]
+```
