@@ -7,6 +7,7 @@ return require('packer').startup(function()
 use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 use {"arcticicestudio/nord-vim"}
 use {"dracula/vim"}
+use {"sainnhe/everforest"} 
 
 -- Git integration
 use {'tpope/vim-fugitive'}
@@ -14,7 +15,9 @@ use {'tpope/vim-fugitive'}
 -- Vim Start screen
 use('mhinz/vim-startify')
 
--- fzf
-use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-use {'junegunn/fzf.vim'}
+-- Telescope: A powerful fuzzy finder
+use {
+  'nvim-telescope/telescope.nvim',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
 end)
